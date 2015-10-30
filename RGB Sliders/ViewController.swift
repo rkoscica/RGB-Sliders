@@ -10,16 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+     @IBOutlet weak var redSlider: UISlider!
+     @IBOutlet weak var greenSlider: UISlider!
+     @IBOutlet weak var blueSlider: UISlider!
 
-    override func didReceiveMemoryWarning() {
+     @IBOutlet weak var colorSquare: UIView!
+    
+     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        colorSquare.layer.borderColor = UIColor.blackColor().CGColor
+        colorSquare.layer.borderWidth = 1
+        updateSquare()
+     }
+
+     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+        print("Memory Warning")
+     }
 
+     @IBAction func updateSquare() {
+        colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+    
 
 }
 
