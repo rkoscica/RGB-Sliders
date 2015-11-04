@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RGB Color Picker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RGB_Sliders" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,16 +48,44 @@
                                     <segue destination="goN-6d-UzB" kind="show" identifier="openColor" id="YNz-kD-KYV"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1J2-Lm-ZUt">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Save" id="doG-Jm-FQx">
+                                        <connections>
+                                            <action selector="updateHistory" destination="BYZ-38-t0r" id="tds-Fd-9zy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c0a-pz-AHT"/>
+                                    <barButtonItem style="plain" id="NmE-GW-OT2">
+                                        <view key="customView" contentMode="scaleToFill" id="Exs-Eq-y8n">
+                                            <rect key="frame" x="143" y="6" width="34" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hTv-Qe-O7n"/>
+                                    <barButtonItem title="Load" id="7Xb-yt-UXk">
+                                        <connections>
+                                            <action selector="loadHistory" destination="BYZ-38-t0r" id="Jf5-Mo-SSI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xAJ-zx-gNd"/>
+                    <navigationItem key="navigationItem" title="RGB Color Picker" id="xAJ-zx-gNd"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="blueSlider" destination="RIR-Hj-2X8" id="Xzd-bM-Evg"/>
                         <outlet property="colorSquare" destination="VvM-9N-ABF" id="a6P-PL-pyH"/>
                         <outlet property="greenSlider" destination="AZj-g8-GLS" id="eKS-G7-t6h"/>
+                        <outlet property="history" destination="Exs-Eq-y8n" id="zpX-EC-ich"/>
+                        <outlet property="loadButton" destination="7Xb-yt-UXk" id="kfe-xh-apw"/>
+                        <outlet property="openButton" destination="Rct-dg-mFS" id="x0u-hQ-Bzm"/>
                         <outlet property="redSlider" destination="mM0-n3-83G" id="Brm-Jt-ASO"/>
+                        <outlet property="saveButton" destination="doG-Jm-FQx" id="Xb4-7p-2zL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

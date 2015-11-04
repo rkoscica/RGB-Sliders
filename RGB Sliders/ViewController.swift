@@ -13,9 +13,15 @@ class ViewController: UIViewController {
      @IBOutlet weak var redSlider: UISlider!
      @IBOutlet weak var greenSlider: UISlider!
      @IBOutlet weak var blueSlider: UISlider!
+     
+     @IBOutlet weak var openButton: UIButton!
+     @IBOutlet weak var saveButton: UIBarButtonItem!
+     @IBOutlet weak var loadButton: UIBarButtonItem!
 
      @IBOutlet weak var colorSquare: UIView!
-    
+     @IBOutlet weak var history: UIView!
+
+     
      override func viewDidLoad() {
           super.viewDidLoad()
           colorSquare.layer.borderColor = UIColor.blackColor().CGColor
@@ -48,7 +54,13 @@ class ViewController: UIViewController {
           defaults.setFloat(blueSlider.value, forKey: "blue")
           defaults.synchronize()
     }
-    
+     @IBAction func updateHistory() {
+          saveButton.title = "It works!"
+          
+     }
+     @IBAction func loadHistory() {
+          loadButton.title = "It Works!"
+     }
 
 }
 
