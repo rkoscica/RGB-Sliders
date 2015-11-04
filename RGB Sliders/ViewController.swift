@@ -21,11 +21,13 @@ class ViewController: UIViewController {
      @IBOutlet weak var colorSquare: UIView!
      @IBOutlet weak var history: UIView!
 
-     
+     var hisVal = [0.0, 0.0, 0.0]
      override func viewDidLoad() {
           super.viewDidLoad()
           colorSquare.layer.borderColor = UIColor.blackColor().CGColor
           colorSquare.layer.borderWidth = 1
+          history.layer.borderColor = UIColor.blackColor().CGColor
+          history.layer.borderWidth = 1
           let defaults = NSUserDefaults.standardUserDefaults()
           redSlider.value = defaults.floatForKey("red")
           greenSlider.value = defaults.floatForKey("green")
@@ -55,11 +57,21 @@ class ViewController: UIViewController {
           defaults.synchronize()
     }
      @IBAction func updateHistory() {
-          saveButton.title = "It works!"
+          saveButton.title = "Saved!"
+          loadButton.title = "Load"
+          hisVal[0] = Double(redSlider.value)
+          hisVal[1] = Double(greenSlider.value)
+          hisVal[2] = Double(blueSlider.value)
+          history.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
           
      }
      @IBAction func loadHistory() {
-          loadButton.title = "It Works!"
+          loadButton.title = "Loaded!"
+          saveButton.title = "Save"
+          redSlider.value = Float(hisVal[0])
+          greenSlider.value = Float(hisVal[1])
+          blueSlider.value = Float(hisVal[2])
+          updateSquare()
      }
 
 }
